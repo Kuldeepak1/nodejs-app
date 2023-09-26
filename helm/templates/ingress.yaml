@@ -1,0 +1,19 @@
+
+{{- if .Values.nodejs.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-nodejs-ingress
+spec:
+  rules:
+    - host: {{ .Values.nodejs.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Release.Name }}-nodejs-service
+                port:
+                  number: {{ .Values.nodejs.service.port }}
+{{- end }}

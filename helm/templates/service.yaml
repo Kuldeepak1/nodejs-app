@@ -1,0 +1,12 @@
+# my-nodejs-app/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-nodejs-service
+spec:
+  selector:
+    app: {{ .Release.Name }}-nodejs
+  ports:
+    - protocol: TCP
+      port: {{ .Values.nodejs.service.port }}
+      targetPort: 3000

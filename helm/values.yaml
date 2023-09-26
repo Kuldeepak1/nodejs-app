@@ -1,0 +1,10 @@
+
+nodejs:
+  image:
+    repository: kdphad/nodejs-app
+    tag: latest
+  service:
+    port: 3000
+  ingress:
+    enabled: true
+    host: nodejs-app.com 

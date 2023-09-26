@@ -1,0 +1,14 @@
+{
+  "name": "your-app-name",
+  "version": "1.0.0",
+  "description": "Your Node.js application description",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.7",
+    "redis": "^3.0.2"
+  }
+}
