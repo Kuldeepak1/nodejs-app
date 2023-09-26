@@ -1,0 +1,9 @@
+Problem faced during this assignment:
+(node:1) UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [mongodb:27017] on first connect [Error: getaddrinfo ENOTFOUND mongodb
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:71:26) {
+  name: 'MongoNetworkError'
+
+ caused pods to face Crashloopback error.
+
+ I tried to solve this error by introducing mongo service but still facing it.
+ I was not able to solve this.
