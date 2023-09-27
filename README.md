@@ -56,6 +56,23 @@ To deploy nodejs-app with helm:
 cd path/to/my-app-chart
 helm install my-app-release .
 ```
+Verify Deployment: 
+```
+kubectl get deployment
+kubectl get pods
+```
+To check the status of services:
+```
+kubectl get services
+```
+To check the status of the ingress:
+```
+kubectl get ingress
+```
+Cleanup: When you're done with your deployment, you can uninstall the Helm release:
+```
+helm uninstall my-app-release
+```
 
 
 
