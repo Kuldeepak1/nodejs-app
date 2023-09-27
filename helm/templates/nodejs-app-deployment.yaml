@@ -1,19 +1,6 @@
-
-apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-nodejs-deployment
-spec:
-  replicas: {{ .Values.nodejs.replicaCount }}
-  template:
-    metadata:
-      labels:
-        app: {{ .Release.Name }}-nodejs
-    spec:
-      containers:apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nodejs-app
+  name: {{ .Release.Name }}-nodejs-app
 spec:
   replicas: 1
   selector:
@@ -30,6 +17,6 @@ spec:
         ports:
         - containerPort: 3000
         - name: nodejs-app
-          image: {{ .Values.nodejs.image.repository }}:{{ .Values.nodejs.image.tag }}
+          image: {{ .Values.nodejsApp.image }}
           ports:
-            - containerPort: 3000
+            - containerPort: {{ .Values.nodejsApp.port }}
