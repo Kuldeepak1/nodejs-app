@@ -1,19 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: mongodb
+  name: {{ .Release.Name }}-mongodb
 spec:
-  replicas: 1
+  ports:
+  - port: 27017
+    targetPort: 27017
   selector:
-    matchLabels:
-      app: mongodb
-  template:
-    metadata:
-      labels:
-        app: mongodb
-    spec:
-      containers:
-      - name: mongodb
-        image: mongodb-image
-        ports:
-        - containerPort: 27017
+    app: mongodb
