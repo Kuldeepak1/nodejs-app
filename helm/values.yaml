@@ -1,10 +1,15 @@
 
-nodejs:
-  image:
-    repository: kdphad/nodejs-app
-    tag: latest
-  service:
-    port: 3000
-  ingress:
-    enabled: true
-    host: nodejs-app.com 
+mongodb:
+  image: mongo
+  rootUsername: root
+  rootPassword: example
+
+nodejsApp:
+  image: kdphad/nodejs-app
+  port: 3000
+
+redis:
+  image: redis
+
+ingress:
+  host: nodejs-app.com
