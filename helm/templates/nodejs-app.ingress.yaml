@@ -1,30 +1,30 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-ingress
+  name: {{ .Release.Name }}-my-ingress
 spec:
   rules:
-    - host: nodejs-app.com  
+    - host: {{ .Values.ingress.host }}
       http:
         paths:
           - path: /mongodb
             pathType: Prefix
             backend:
               service:
-                name: mongodb
+                name: {{ .Release.Name }}-mongodb
                 port:
                   number: 27017
           - path: /nodejs-app
             pathType: Prefix
             backend:
               service:
-                name: nodejs-app
+                name: {{ .Release.Name }}-nodejs-app
                 port:
-                  number: 3000
+                  number: {{ .Values.nodejsApp.port }}
           - path: /redis
             pathType: Prefix
             backend:
               service:
-                name: redis
+                name: {{ .Release.Name }}-redis
                 port:
                   number: 6379
