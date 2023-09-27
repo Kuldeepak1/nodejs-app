@@ -10,7 +10,25 @@ spec:
       labels:
         app: {{ .Release.Name }}-nodejs
     spec:
+      containers:apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
       containers:
+      - name: nodejs-app
+        image: kdphad/nodejs-app
+        ports:
+        - containerPort: 3000
         - name: nodejs-app
           image: {{ .Values.nodejs.image.repository }}:{{ .Values.nodejs.image.tag }}
           ports:
