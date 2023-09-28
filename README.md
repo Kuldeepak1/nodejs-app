@@ -8,11 +8,20 @@ http://localhost:3000
 ```
 To create Deployments,Service and ingress from manifest files.
 ```
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-kubectl apply -f ingress.yaml
 
+kubectl apply -f mongo-deployment.yaml
+kubectl apply -f mongo-service.yaml
+kubectl apply -f nodejs-app-deployment.yaml
+kubectl apply -f nodejs-app-service.yaml
+kubectl apply -f nodejs-app.ingrress.yaml
+kubectl apply -f redis-deployement.yaml
+kubectl apply -f redis-service.yaml
 ```
+OR
+You can create all at once by applying apply command to kubernetes folder
+``
+kubectl apply -f kubernetes
+``
 Create Helm charts for your kubernetes based deployment
 ```
 helm create my-app-chart
