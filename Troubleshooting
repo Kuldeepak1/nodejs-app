@@ -1,0 +1,27 @@
+Problem faced during this assignment:
+(node:1) UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [mongodb:27017] on first connect [Error: getaddrinfo ENOTFOUND mongodb
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:71:26) {
+  name: 'MongoNetworkError'
+
+ Which caused pods to face Crashloopback error.
+
+ I tried to solve this error by introducing mongo, redis services and deployments for each.
+
+While installing helm charts I faced error like "Error: INSTALLATION FAILED: unable to build kubernetes objects from release manifest: error validating "": 
+error validating data: [ValidationError(Deployment.spec.template.spec.containers[0].ports[1]): unknown field "image" in io.k8s.api.core.v1.ContainerPort, 
+ValidationError(Deployment.spec.template.spec.containers[0].ports[1]): unknown field "ports" in io.k8s.api.core.v1.ContainerPort, 
+ValidationError(Deployment.spec.template.spec.containers[0].ports[1]): missing required field "containerPort" in io.k8s.api.core.v1.ContainerPort]"
+
+This is how I resolved this.
+- There was typo in my nodejs-deployment.yaml manifest file.
+   I removed extra typed fields in my manifest files ana gave referece from my Values.yaml files such that:
+```
+    spec:
+      containers:
+      - name: nodejs-app
+        image: {{ .Values.nodejsApp.image }}
+        ports:
+        - containerPort: {{ .Values.nodejsApp.port }}
+```
+
+
