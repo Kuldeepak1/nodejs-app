@@ -22,6 +22,7 @@ You can create all at once by applying apply command to kubernetes folder
 ``
 kubectl apply -f kubernetes
 ``
+
 Create Helm charts for your kubernetes based deployment
 ```
 helm create my-app-chart
