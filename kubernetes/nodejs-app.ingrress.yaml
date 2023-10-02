@@ -4,7 +4,6 @@ metadata:
   name: my-ingress
 spec:
   rules:
-    - host: nodejs-app.com  
       http:
         paths:
           - path: /mongodb
